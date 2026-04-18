@@ -20,7 +20,7 @@ jobs:
           java-version: 17
 
       - name: Build com Maven Wrapper
-        run: ./mvnw clean package -DskipTests
+        run: ./mvnw -f mine-spec/pom.xml clean package -DskipTests
 
       - name: Criar Release
         uses: softprops/action-gh-release@v2
