@@ -1,0 +1,30 @@
+name: Release Mine Spec
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build com Maven Wrapper
+        run: ./mvnw clean package -DskipTests
+
+      - name: Criar Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mine-spec/target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
