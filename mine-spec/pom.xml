@@ -5,7 +5,7 @@
   <groupId>io.mine</groupId>
   <artifactId>mine-spec</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
 
   <name>mine-spec</name>
   <description>Contrato para integração com Mine</description>
