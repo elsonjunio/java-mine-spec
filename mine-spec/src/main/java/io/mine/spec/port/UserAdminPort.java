@@ -14,85 +14,86 @@ import io.mine.spec.dto.admin.GroupPolicyDetached;
 import io.mine.spec.dto.admin.GroupPolicyMapp;
 import io.mine.spec.dto.admin.ServiceAccounts;
 import io.mine.spec.dto.admin.User;
+import io.mine.spec.exceptions.UserAdminException;
 
 public interface UserAdminPort {
 
-    void setup();
+    void setup() throws UserAdminException;
 
-    List<BucketQuota> setBucketQuota(String bucket, String quota);
+    List<BucketQuota> setBucketQuota(String bucket, String quota) throws UserAdminException;
 
-    List<BucketQuota> getBucketQuota(String bucket);
+    List<BucketQuota> getBucketQuota(String bucket) throws UserAdminException;
 
-    List<User> listUsers();
+    List<User> listUsers() throws UserAdminException;
 
-    List<User> getUser(String username);
+    List<User> getUser(String username) throws UserAdminException;
 
-    List<User> createUser(String username, String password);
+    List<User> createUser(String username, String password) throws UserAdminException;
 
-    List<User> deleteUser(String username);
+    List<User> deleteUser(String username) throws UserAdminException;
 
-    List<User> enableUser(String username);
+    List<User> enableUser(String username) throws UserAdminException;
 
-    List<User> disableUser(String username);
+    List<User> disableUser(String username) throws UserAdminException;
 
-    List<GroupList> listGroups();
+    List<GroupList> listGroups() throws UserAdminException;
 
-    List<GroupInfo> groupInfo(String name);
+    List<GroupInfo> groupInfo(String name) throws UserAdminException;
 
-    List<GroupInfo> createGroup(String name, List<String> users);
+    List<GroupInfo> createGroup(String name, List<String> users) throws UserAdminException;
 
-    List<GroupInfo> removeGroup(String name);
+    List<GroupInfo> removeGroup(String name) throws UserAdminException;
 
-    List<GroupInfo> removeUsersFromGroup(String name, List<String> users);
+    List<GroupInfo> removeUsersFromGroup(String name, List<String> users) throws UserAdminException;
 
-    List<GroupInfo> addUsersToGroup(String name, List<String> users);
+    List<GroupInfo> addUsersToGroup(String name, List<String> users) throws UserAdminException;
 
-    List<GroupInfo> enableGroup(String name);
+    List<GroupInfo> enableGroup(String name) throws UserAdminException;
 
-    List<GroupInfo> disableGroup(String name);
+    List<GroupInfo> disableGroup(String name) throws UserAdminException;
 
-    List<Policy> listPolicies();
+    List<Policy> listPolicies() throws UserAdminException;
 
-    List<Policy> getPolicy(String name);
+    List<Policy> getPolicy(String name) throws UserAdminException;
 
-    List<Policy> createPolicy(String name, String filePath);
+    List<Policy> createPolicy(String name, String filePath) throws UserAdminException;
 
-    List<Policy> deletePolicy(String name);
+    List<Policy> deletePolicy(String name) throws UserAdminException;
 
     List<PolicyAttached> attachPolicy(
-            String policy, String username);
+            String policy, String username) throws UserAdminException;
 
     List<PolicyDetached> detachPolicy(
-            String policy, String username);
+            String policy, String username) throws UserAdminException;
 
     List<GroupPolicyAttached> attachPolicyToGroup(
-            String policy, String group);
+            String policy, String group) throws UserAdminException;
 
     List<GroupPolicyDetached> detachPolicyFromGroup(
-            String policy, String group);
+            String policy, String group) throws UserAdminException;
 
-    List<GroupPolicyMapp> getPolicyFromGroup(String group);
+    List<GroupPolicyMapp> getPolicyFromGroup(String group) throws UserAdminException;
 
-    List<ServiceAccounts> listServiceAccounts(String username);
+    List<ServiceAccounts> listServiceAccounts(String username) throws UserAdminException;
 
     List<CreateServiceAccount> createServiceAccount(
             String username,
             String policy,
-            String expiration);
+            String expiration) throws UserAdminException;
 
     List<ServiceAccounts> deleteServiceAccount(
-            String accessKey);
+            String accessKey) throws UserAdminException;
 
     List<Object> addNotificationTarget(
             String targetType,
             String identifier,
-            Object config);
+            Object config) throws UserAdminException;
 
     List<Object> removeNotificationTarget(
             String targetType,
-            String identifier);
+            String identifier) throws UserAdminException;
 
     List<Object> listNotificationTargets(
-            String targetType);
+            String targetType) throws UserAdminException;
 
 }
