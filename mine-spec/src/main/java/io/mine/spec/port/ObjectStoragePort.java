@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import io.mine.spec.dto.object.BucketInfo;
 import io.mine.spec.dto.object.BucketUsage;
 import io.mine.spec.dto.object.ObjectListResult;
@@ -86,38 +88,38 @@ public interface ObjectStoragePort {
 
     BucketUsage getBucketUsage(String name) throws ObjectStorageException;
 
-    Optional<Map<String, Object>> getBucketPolicy(
+    Optional<Map<String, JsonNode>> getBucketPolicy(
         String bucket) throws ObjectStorageException;
 
     void putBucketPolicy(
         String bucket,
-        Map<String, Object> policy
+        Map<String, JsonNode> policy
     ) throws ObjectStorageException;
 
     void deleteBucketPolicy(
         String bucket
     ) throws ObjectStorageException;
 
-    Optional<Map<String, Object>> getBucketLifecycle(
+    Optional<Map<String, JsonNode>> getBucketLifecycle(
         String bucket
     ) throws ObjectStorageException;
 
     void putBucketLifecycle(
         String bucket,
-        Map<String, Object> lifecycle
+        Map<String, JsonNode> lifecycle
     ) throws ObjectStorageException;
 
     void deleteBucketLifecycle(
         String bucket
     ) throws ObjectStorageException;
 
-    Map<String, Object> getBucketEvents(
+    Map<String, JsonNode> getBucketEvents(
         String bucket
     ) throws ObjectStorageException;
 
     void putBucketEvents(
         String bucket,
-        Map<String, Object> config
+        Map<String, JsonNode> config
     ) throws ObjectStorageException;
 
     void deleteBucketEvents(

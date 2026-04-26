@@ -2,6 +2,8 @@ package io.mine.spec.port;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import io.mine.spec.dto.admin.Policy;
 import io.mine.spec.dto.admin.PolicyAttached;
 import io.mine.spec.dto.admin.PolicyDetached;
@@ -84,16 +86,16 @@ public interface UserAdminPort {
     List<ServiceAccounts> deleteServiceAccount(
             String accessKey) throws UserAdminException;
 
-    List<Object> addNotificationTarget(
+    List<JsonNode> addNotificationTarget(
             String targetType,
             String identifier,
-            Object config) throws UserAdminException;
+            JsonNode config) throws UserAdminException;
 
-    List<Object> removeNotificationTarget(
+    List<JsonNode> removeNotificationTarget(
             String targetType,
             String identifier) throws UserAdminException;
 
-    List<Object> listNotificationTargets(
+    List<JsonNode> listNotificationTargets(
             String targetType) throws UserAdminException;
 
 }
