@@ -36,7 +36,7 @@ public interface UserAdminPort {
 
     List<User> disableUser(String username) throws UserAdminException;
 
-    List<GroupList> listGroups() throws UserAdminException;
+    List<String> listGroups() throws UserAdminException;
 
     List<GroupInfo> groupInfo(String name) throws UserAdminException;
 
